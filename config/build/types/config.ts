@@ -4,7 +4,8 @@ export type BuildMode = 'production' | 'development';
 export interface BuildPath {
     entry: string,
     build: string,
-    html: string
+    html: string,
+    src: string
 }
 
 export interface BuildEnv {
