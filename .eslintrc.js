@@ -5,7 +5,8 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
-    'airbnb'
+    'airbnb',
+    'plugin:i18next/recommended'
   ],
   overrides: [
   ],
@@ -19,7 +20,8 @@ module.exports = {
     project: ['tsconfig.json']
   },
   plugins: [
-    'react'
+    'react',
+    'i18next'
   ],
   rules: {
     'comma-dangle': ['error', 'never'],
