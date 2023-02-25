@@ -1,11 +1,15 @@
 import {Suspense} from 'react';
+import {useTranslation} from 'react-i18next';
 import {Route, Routes} from 'react-router-dom';
 import {routeConfig} from 'shared/config/routeConfig/routeConfig';
 
-const AppRouter = () => (
-  <Suspense fallback={<div>ЗагрузОЧКА</div>}>
-    <Routes>
-      {
+const AppRouter = () => {
+  const {t} = useTranslation();
+
+  return (
+    <Suspense fallback={<div>{t('ЗагрузОЧКА')}</div>}>
+      <Routes>
+        {
           Object.values(routeConfig).map(({path, element}) => (
             <Route
               key={path}
@@ -18,8 +22,9 @@ const AppRouter = () => (
             />
           ))
         }
-    </Routes>
-  </Suspense>
-);
+      </Routes>
+    </Suspense>
+  );
+};
 
 export default AppRouter;
