@@ -1,29 +1,25 @@
-import { AboutPage } from 'pages/AboutPage';
-import { MainPage } from 'pages/MainPage';
-import React, { Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { routeConfig } from 'shared/config/routeConfig/routeConfig';
+import {Suspense} from 'react';
+import {Route, Routes} from 'react-router-dom';
+import {routeConfig} from 'shared/config/routeConfig/routeConfig';
 
-const AppRouter = () => {
-  return (
-    <Suspense fallback={<div>ЗагрузОЧКА</div>}>
-      <Routes>
-        {
+const AppRouter = () => (
+  <Suspense fallback={<div>ЗагрузОЧКА</div>}>
+    <Routes>
+      {
           Object.values(routeConfig).map(({path, element}) => (
             <Route
               key={path}
               path={path}
-              element={
-                <div className='page-wrapper'>
+              element={(
+                <div className="page-wrapper">
                   {element}
                 </div>
-              }
+              )}
             />
           ))
         }
-      </Routes>
-    </Suspense>
-  );
-};
+    </Routes>
+  </Suspense>
+);
 
 export default AppRouter;
