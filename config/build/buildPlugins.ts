@@ -1,4 +1,4 @@
-// import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+// import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
