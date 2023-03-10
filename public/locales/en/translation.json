@@ -2,8 +2,11 @@
   "Тестовый пример": "Test example",
   "Перевод": "Translate",
   "Язык": "English",
+  "Короткий язык": "En",
   "ЗагрузОЧКА": "Loading",
   "Произошла непредвиденная ошибка": "An unexpected error has occurred",
   "Обновить страницу": "Reload page",
-  "Переключить": "Toggle"
+  "Переключить": "Toggle",
+  "Главная": "Main",
+  "О сайте": "About site"
 }
