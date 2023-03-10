@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 import {classNames as cn} from 'shared/lib/classNames/classNames';
 import {Button} from 'shared/ui/Button/Button';
 import {LangSwitcher} from 'widgets/LangSwitcher';
