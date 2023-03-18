@@ -9,5 +9,7 @@
   "Переключить": "Toggle",
   "Главная": "Main",
   "О сайте": "About site",
-  "Войти": "Login"
+  "Войти": "Login",
+  "increment": "increment",
+  "decrement": "decrement"
 }

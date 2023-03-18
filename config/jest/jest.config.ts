@@ -33,5 +33,8 @@ export default {
   },
   testMatch: [
     '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
-  ]
+  ],
+  globals: {
+    __IS_DEV__: true
+  }
 };
