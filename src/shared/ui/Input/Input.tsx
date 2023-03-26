@@ -8,7 +8,7 @@ interface InputProps extends HTMLInputProps {
   className?: string;
   value?: string;
   onChange?: (value: string) => void;
-  title?: string;
+  label?: string;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -17,7 +17,7 @@ export const Input = memo((props: InputProps) => {
     value,
     onChange,
     type = 'text',
-    title,
+    label,
     ...otherProps
   } = props;
 
@@ -25,14 +25,12 @@ export const Input = memo((props: InputProps) => {
     onChange?.(e.target.value);
   };
 
-  console.log('otherProps', otherProps);
-
   return (
     <div className={cn(s.InputWrapper, {}, [className])}>
       {
-        title ? (
-          <div className={s.title}>
-            {`${title}>`}
+        label ? (
+          <div className={s.label}>
+            {`${label}`}
           </div>
         ) : null
       }

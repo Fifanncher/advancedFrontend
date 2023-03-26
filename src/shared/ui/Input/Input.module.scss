@@ -3,6 +3,18 @@
   align-items: center;
 }
 
-.title {
-  margin-right: 5px;
+.input {
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  background: var(--bg-color);
+  padding-left: 2px;
+
+  &:focus {
+    outline: none !important;
+    border-color: 1px solid var(--primary-color);
+  }
+}
+
+.label {
+  margin-right: 10px;
 }
