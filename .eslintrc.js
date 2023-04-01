@@ -54,7 +54,8 @@ module.exports = {
     'jsx-a11y/no-static-element-interactions': 'off',
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
     'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
-    'no-param-reassign': 'off'
+    'no-param-reassign': 'off',
+    'lines-between-class-members': 'off'
   },
   globals: {
     __IS_DEV__: true
