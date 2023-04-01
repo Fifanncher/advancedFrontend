@@ -19,7 +19,7 @@ module.exports = {
     sourceType: 'module',
     tsconfigRootDir: __dirname
   },
-  plugins: ['react', 'i18next', 'react-hooks'],
+  plugins: ['react', 'i18next', 'react-hooks', '@typescript-eslint'],
   rules: {
     'comma-dangle': ['error', 'never'],
     'react/jsx-filename-extension': [2, {
@@ -31,7 +31,8 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'import/extensions': [0],
     'import/prefer-default-export': 'off',
-    'no-unused-vars': ['warn', {
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['warn', {
       argsIgnorePattern: '^_',
       varsIgnorePattern: '^_'
     }],
