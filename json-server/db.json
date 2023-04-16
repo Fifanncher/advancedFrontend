@@ -25,5 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "first": "Иван",
+    "lastname": "Фифанн",
+    "age": 29,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Tyumen",
+    "username": "admin",
+    "avatar": "https://dota-blog.ru/wp-content/uploads/2020/01/132712.jpg"
+  }
 }

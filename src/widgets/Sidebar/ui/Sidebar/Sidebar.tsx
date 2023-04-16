@@ -1,22 +1,18 @@
-import {useState} from 'react';
-import {useTranslation} from 'react-i18next';
-import {RoutePath} from 'shared/config/routeConfig/routeConfig';
+import {memo, useState} from 'react';
 import {classNames as cn} from 'shared/lib/classNames/classNames';
-import {AppLink, AppLinkTheme} from 'shared/ui/AppLink/AppLink';
 import {Button, ButtonSize, ButtonTheme} from 'shared/ui/Button/Button';
 import {LangSwitcher} from 'widgets/LangSwitcher';
 import {ThemeSwitcher} from 'widgets/ThemeSwitcher';
-import MainIcon from 'shared/assets/icons/main-20-20.svg';
-import AboutIcon from 'shared/assets/icons/about-20-20.svg';
+import {SidebarItemList} from '../../models/items';
 import s from './Sidebar.module.scss';
+import {SidebarItem} from '../SidebarItem/SidebarItem';
 
 export interface SidebarProps {
   className?: string;
 }
 
-export const Sidebar = ({className}: SidebarProps) => {
+export const Sidebar = memo(({className}: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
-  const {t} = useTranslation();
 
   const onToggle = () => {
     setCollapsed((prev) => !prev);
@@ -38,22 +34,15 @@ export const Sidebar = ({className}: SidebarProps) => {
         {collapsed ? '>' : '<'}
       </Button>
       <div className={s.items}>
-        <AppLink
-          to={RoutePath.main}
-          theme={AppLinkTheme.SECONDARY}
-          className={s.item}
-        >
-          <MainIcon className={s.icon} />
-          <span className={s.link}>{t('Главная')}</span>
-        </AppLink>
-        <AppLink
-          to={RoutePath.about}
-          theme={AppLinkTheme.SECONDARY}
-          className={s.item}
-        >
-          <AboutIcon className={s.icon} />
-          <span className={s.link}>{t('О сайте')}</span>
-        </AppLink>
+        {
+          SidebarItemList.map((item) => (
+            <SidebarItem
+              key={item.path}
+              item={item}
+              collapsed={collapsed}
+            />
+          ))
+        }
       </div>
       <div className={s.switchers}>
         <ThemeSwitcher />
@@ -61,4 +50,4 @@ export const Sidebar = ({className}: SidebarProps) => {
       </div>
     </div>
   );
-};
+});
