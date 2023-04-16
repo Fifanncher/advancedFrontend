@@ -55,10 +55,12 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
     'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
     'no-param-reassign': 'off',
-    'lines-between-class-members': 'off'
+    'lines-between-class-members': 'off',
+    'no-undef': 'off'
   },
   globals: {
-    __IS_DEV__: true
+    __IS_DEV__: true,
+    __API__: true
   },
   overrides: [
     {
