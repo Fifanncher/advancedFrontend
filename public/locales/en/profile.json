@@ -10,5 +10,10 @@
   "Имя пользователя": "User name",
   "Аватар": "Avatar",
   "Отменить": "Cancel",
-  "Сохранить": "Save"
+  "Сохранить": "Save",
+  "Серверная ошибка при сохранении": "Server error",
+  "Некорректный регион": "Incorrect region",
+  "Имя и фамилия обязательны": "Name and surname is required",
+  "Данные не указаны": "Data is not specified",
+  "Некорректный возраст": "Incorrect age"
 }

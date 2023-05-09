@@ -1,6 +1,6 @@
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {Avatar} from './Avatar';
-import AvatarImg from './avatar.jpeg';
+import AvatarImg from '../../assets/tests/avatar.jpeg';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
