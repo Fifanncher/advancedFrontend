@@ -1,7 +1,6 @@
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {Country} from 'entities/Country';
 import {Currency} from 'entities/Currency';
-import avatar from 'shared/assets/tests/avatar.jpeg';
 import {ProfileCard} from './ProfileCard';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -26,7 +25,7 @@ Primary.args = {
     currency: Currency.RUB,
     country: Country.Russia,
     city: 'Tyumen',
-    avatar
+    avatar: 'https://antislang.ru/wp-content/uploads/%D1%80%D0%BE%D1%84%D0%BB%D0%B0%D0%BD-%D0%B4%D0%BE%D0%B4%D0%B8%D0%BA.png'
   }
 };
 
