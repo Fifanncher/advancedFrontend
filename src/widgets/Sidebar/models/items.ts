@@ -7,7 +7,8 @@ import {RoutePath} from 'shared/config/routeConfig/routeConfig';
 export interface SidebarItemType {
   path: string;
   text: string;
-  Icon: React.FunctionComponent<React.SVGAttributes<SVGElement>>
+  Icon: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
+  authOnly?: boolean;
 }
 
 export const SidebarItemList: SidebarItemType[] = [
@@ -24,6 +25,7 @@ export const SidebarItemList: SidebarItemType[] = [
   {
     path: RoutePath.profile,
     text: 'Профиль',
-    Icon: ProfileIcon
+    Icon: ProfileIcon,
+    authOnly: true
   }
 ];
