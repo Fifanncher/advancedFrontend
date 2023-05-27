@@ -1,6 +1,5 @@
 import {memo} from 'react';
 import {classNames as cn} from 'shared/lib/classNames/classNames';
-import {useTranslation} from 'react-i18next';
 import {Avatar} from 'shared/ui/Avatar/Avatar';
 import {Text} from 'shared/ui/Text/Text';
 import {Skeleton} from 'shared/ui/Skeleton/Skeleton';
@@ -14,8 +13,6 @@ interface CommentCardProps {
 }
 
 export const CommentCard = memo(({className, comment, isLoading}: CommentCardProps) => {
-  const {t} = useTranslation();
-
   if (isLoading) {
     return (
       <div className={cn(s.commentCard, {}, [className])}>
