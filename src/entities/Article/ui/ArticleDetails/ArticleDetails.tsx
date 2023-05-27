@@ -5,13 +5,14 @@ import {
   ReducersList
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import {memo, useEffect} from 'react';
+import {memo} from 'react';
 import {useSelector} from 'react-redux';
 import {Text, TextAlign, TextSize} from 'shared/ui/Text/Text';
 import {Skeleton} from 'shared/ui/Skeleton/Skeleton';
 import {Avatar} from 'shared/ui/Avatar/Avatar';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
+import {useInitialEffect} from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import {
   getArticleDetailsIsLoading,
   getArticleDetailsData,
@@ -54,11 +55,9 @@ export const ArticleDetails = memo(({className, id}: ArticleDetailsProps) => {
   const article = useSelector(getArticleDetailsData);
   const error = useSelector(getArticleDetailsError);
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchArticleById(id));
-    }
-  }, [dispatch, id]);
+  useInitialEffect(() => {
+    dispatch(fetchArticleById(id));
+  });
 
   let content;
 
