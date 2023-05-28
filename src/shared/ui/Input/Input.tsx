@@ -40,14 +40,16 @@ export const Input = memo((props: InputProps) => {
           </div>
         ) : null
       }
-      <input
-        type={type}
-        value={value}
-        onChange={onChangeHandler}
-        className={s.input}
-        readOnly={readonly}
-        {...otherProps}
-      />
+      <div className={s.htmlInputWrapper}>
+        <input
+          type={type}
+          value={value}
+          onChange={onChangeHandler}
+          className={s.input}
+          readOnly={readonly}
+          {...otherProps}
+        />
+      </div>
     </div>
   );
 });

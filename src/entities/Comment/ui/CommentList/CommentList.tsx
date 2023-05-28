@@ -7,12 +7,28 @@ import {CommentCard} from '../CommentCard/CommentCard';
 
 interface CommentListProps {
   className?: string;
-  comments?: Comment[];
+  comments: Comment[];
   isLoading?: boolean;
 }
 
 export const CommentList = memo(({className, comments, isLoading}: CommentListProps) => {
   const {t} = useTranslation();
+
+  if (isLoading) {
+    return (
+      <div className={className}>
+        <CommentCard
+          isLoading
+        />
+        <CommentCard
+          isLoading
+        />
+        <CommentCard
+          isLoading
+        />
+      </div>
+    );
+  }
 
   return (
     <div className={className}>

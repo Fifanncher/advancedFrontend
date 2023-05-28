@@ -5,6 +5,7 @@ import {ValidateProfileError} from '../../types/profile';
 import {updateProfileData} from './updateProfileData';
 
 const data = {
+  id: '1',
   username: 'admin',
   first: 'Иван',
   lastname: 'Фифанн',
@@ -31,7 +32,7 @@ describe('updateProfileData.test', () => {
     expect(res.payload).toEqual(data);
   });
 
-  test('error', async () => {
+  test('validate error', async () => {
     const thunk = new TestAsyncThunk(updateProfileData, {
       profile: {
         form: {...data, lastname: ''}
@@ -41,5 +42,21 @@ describe('updateProfileData.test', () => {
 
     expect(res.meta.requestStatus).toBe('rejected');
     expect(res.payload).toEqual([ValidateProfileError.INCORRECT_USER_DATA]);
+  });
+
+  test('error', async () => {
+    const thunk = new TestAsyncThunk(updateProfileData, {
+      profile: {
+        form: data
+      }
+    });
+    thunk.api.put.mockReturnValue(Promise.resolve({status: 403}));
+
+    const result = await thunk.callThunk();
+
+    expect(result.meta.requestStatus).toBe('rejected');
+    expect(result.payload).toEqual([
+      ValidateProfileError.SERVER_ERROR
+    ]);
   });
 });

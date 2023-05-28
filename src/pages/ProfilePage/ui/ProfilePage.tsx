@@ -23,6 +23,7 @@ import {Country} from 'entities/Country';
 import {Text, TextTheme} from 'shared/ui/Text/Text';
 import {useTranslation} from 'react-i18next';
 import {useInitialEffect} from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import {useParams} from 'react-router-dom';
 import {ProfilePageHeader} from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -41,6 +42,7 @@ const ProfilePage = ({className}: ProfilePageProps) => {
   const isLoading = useSelector(getProfileIsLoading);
   const readonly = useSelector(getProfileReadonly);
   const validateErrors = useSelector(getProfileValidateErrors);
+  const {id} = useParams<{id: string}>();
 
   const validateErrorTranslates = {
     [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
@@ -51,7 +53,9 @@ const ProfilePage = ({className}: ProfilePageProps) => {
   };
 
   useInitialEffect(() => {
-    dispatch(fetchProfileData());
+    if (id) {
+      dispatch(fetchProfileData(id));
+    }
   });
 
   const onChangeFirstname = useCallback((value?: string) => {
