@@ -1,8 +1,10 @@
 import {memo, useCallback} from 'react';
 import {ArticleDetails} from 'entities/Article';
-import {useParams} from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 import {Text} from 'shared/ui/Text/Text';
+import {Button, ButtonTheme} from 'shared/ui/Button/Button';
+import {RoutePath} from 'shared/config/routeConfig/routeConfig';
 import {CommentList} from 'entities/Comment';
 import {classNames as cn} from 'shared/lib/classNames/classNames';
 import {
@@ -37,6 +39,11 @@ const ArticleDetailsPage = ({className}: ArticleDetailsPageProps) => {
   const dispatch = useDispatch();
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+  const navigate = useNavigate();
+
+  const onBackToList = useCallback(() => {
+    navigate(RoutePath.articles);
+  }, [navigate]);
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
@@ -57,6 +64,9 @@ const ArticleDetailsPage = ({className}: ArticleDetailsPageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={cn(s.articleDetailsPage, {}, [className])}>
+        <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
+          {t('Назад к списку')}
+        </Button>
         <ArticleDetails id={id} />
         <Text title={t('Комментарии')} className={s.commentTitle} />
         <AddCommentForm onSendComment={onSendComment} />
